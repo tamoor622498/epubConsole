@@ -1,0 +1,65 @@
+Metadata-Version: 2.1
+Name: climage
+Version: 0.1.3
+Summary: Convert images to beautiful ANSI escape codes
+Home-page: http://github.com/pnappa/CLImage
+Author: Patrick Nappa
+Author-email: patricknappa@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Artistic Software
+Classifier: Topic :: Multimedia :: Graphics
+Classifier: Topic :: System :: System Shells
+Classifier: Topic :: Utilities
+Requires-Python: >=3.2
+Description-Content-Type: text/markdown
+Requires-Dist: Pillow
+Requires-Dist: kdtree
+
+
+# CLImage
+
+Convert images to beautiful ANSI escape codes for display in command line interfaces.
+
+Available as both a CLI application and a Python library.
+
+![demo](https://raw.github.com/pnappa/CLImage/master/extra/demo.png)
+
+## Features
+ - 8/16/256/Truecolor supports
+ - Custom system color palettes
+ - Toggleable Unicode mode, allowing up to 4x more detail
+ - Custom output size
+
+## Example usage
+### CLI
+`$ climage --unicode --truecolor --cols 80 barney.jpg`
+
+![cliusage](https://raw.github.com/pnappa/CLImage/master/extra/clibarney.png)
+
+For more detail and available options, run `$ climage --help`.
+
+### Python
+```python3
+import climage
+
+output = climage.convert('image.png', is_unicode=True)
+print(output)
+```
+
+
+
