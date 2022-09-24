@@ -7,15 +7,40 @@ import json
 import xmltodict
 
 book = epub.read_epub('Axiom.epub')
+print(book.get_metadata('DC', 'title'))
 items = list(book.get_items_of_type(ebooklib.ITEM_DOCUMENT))
-t = items[6].get_content().decode("utf-8")#.replace('&#13;','')
+t = items[8].get_content().decode("utf-8")
 
 
 bs_content = bs(t, features="xml")
 
-body = bs_content.find("body")
+con = bs_content.find("body").contents
 
-print(list(bs_content.children)[1])
+for child in con:
+    if (child != '\n'):
+        for sub in child.contents:
+            if(sub != '\n'):
+                print(sub.getText())
+                print("================================================================================")
+                print(sub.find("img"))
+                print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+        print("--------------------------------------------------------------------------------")
+
+
+
+# for child in body.findChildren():
+#     print(child.findChildren())
+#     print("-----------------------------------------------------------------------------------------------------------------")
+
+#print(vals)
+
+# for child in children:
+#     print(child)
+#     # d = xmltodict.parse(str(child))
+#     # j = json.dumps(d, indent=2)
+#     # print(j)
+#     print("-----------------------------------------------------------------------------------------------------------------")
+
 
 # child = body.contents[1]
 
